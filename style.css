@@ -144,6 +144,29 @@ body {
   border-bottom: 3px solid #3cd8ff;
 }
 
+.alert {
+  padding: 20px;
+  background-color: #25d198;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.closebtn {
+  margin-right: 15px;
+  color: white;
+  font-weight: bold;
+  float: left;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 .count {
 	position: absolute;
 	top: 50%;
@@ -256,14 +279,14 @@ body.info-open #page{
 
 .links {
   text-decoration: none;
-	color: #cc29ed;
+	color: #00b40f;
 }
 
 .links:visited {
-	color: #a621ff;
+	color: #00b40f;
 }
 
 .links:hover {
-	color: #2181ff;
+	color: #007a0a;
   cursor: pointer;
 }

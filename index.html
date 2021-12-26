@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <title>The Ghost and Molly McGee Hiatus Tracker</title>
+    <title>Miraculous Hiatus Tracker</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="Tracks the length between episodes of the ongoing Disney Channel show,
@@ -51,6 +51,13 @@
         <a class = "website" href="https://xman2156.github.io/tgamm/">Molly McGee</a>
         <a class = "active website" href="https://xman2156.github.io/miraculous/">Miraculous</a>
         <a class = "report website" target="_blank" href="https://forms.gle/eSQXePZQ9y7Lrs6T9">Report a bug or ask a question</a>
+      </div>
+
+      <div class="alert">
+        <span class="closebtn">&times;</span>
+        <strong>INFO!</strong> Dates may not be accurate and are based on the 
+        <a href="https://miraculousladybug.fandom.com/wiki/Episode_guide">Miraculous wiki</a> 
+        english release dates. Dates after 11/27/21 will be correct based on U.S. dates 
       </div>
          
       <div class="count">
@@ -111,5 +118,13 @@
     </div>
     <script src="modal.js"></script>
     <script src="youtube.js"></script>
+    <script>
+      var close = document.getElementsByClassName("closebtn");
+        close[0].onclick = function(){
+          var div = this.parentElement;
+          div.style.opacity = "0";
+          setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
+    </script>
   </body>
 </html>

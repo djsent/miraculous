@@ -112,28 +112,36 @@ function timer(updown, zeroTime, id){
 //The Grand Array of Hiatuses
 var hiatusList = [
 ['Last Episode','Next Episode','Preceding Release','Following Release','Hiatus Length','Note'],
-['Darkblade','The Mime','Feb 28 2016','Mar 26 2016','',''],
-['Volpina','Santa Claws','Apr 26 2016','Dec 20 2016','','Christmas Special'],
-['Santa Claws','The Collector','Dec 20 2016','Oct 21 2017','',''],
-['Robostus','The Dark Owl','Nov 18 2017','Feb 12 2018','',''],
-['Sapotis','Gorizilla','Feb 15 2018','Mar 14 2018','',''],
-['','','','','',''],
-['','','','','',''],
-['','','','','',''],
-['','','','','',''],
-['','','','','',''],
-['','','','','',''],
+['Darkblade','The Mime','Feb 28 2016','Mar 26 2016',27,''],
+['Volpina','Santa Claws','Apr 26 2016','Dec 20 2016',238,''],
+['Santa Claws','The Collector','Dec 20 2016','Oct 21 2017',305,''],
+['Robostus','The Dark Owl','Nov 18 2017','Feb 12 2018',86,''],
+['Sapotis','Gorizilla','Feb 15 2018','Mar 14 2018',27,''],
+['Zombizou','Syren','Apr 9 2018','May 5 2018',26,''],
+['Frightningale','Troublemaker','May 9 2018','Jun 16 2018',38,''],
+['Troublemaker','Reverser','Jun 16 2018','Jul 23 2018',37,''],
+['Reverser','Anansi','Jul 23 2018','Sep 10 2018',49,''],
+['Chameleon','Weredad','Dec 1 2018','Feb 6 2019',67,''],
+['Stormy Weather 2','Animaestro','Feb 14 2019','Mar 12 2019',26,''],
+['Oblivio','Bakerix','Mar 19 2019','May 11 2019',53,''],
+['Timetagger','Gamer 2.0','May 25 2019','Jul 11 2019',47,''],
+['The Puppeteer','Reflekdoll','Aug 1 2019','Sep 3 2019',33,''],
+['Kwamibuster','Cat Blanc','Oct 12 2019','Nov 12 2019',31,''],
+['Miracle Queen','Truth','Nov 23 2019','May 15 2021',539,''],
+['Mega Leech','Crocoduel','Aug 14 2021','Sep 17 2021',34,''],
+['Crocoduel','Simpleman','Sep 17 2021','Oct 16 2021',29,''],
+['Ephemeral','???','Nov 27 2021','???','','']
 ];
 	
 function hiatusRankCheck(){
 	var diffDays = timer("up", latestRelease, "count");
   var hiatusRank = 0;
-  var nextHiatusLength = hiatusList[1][7]; //reference to the longest hiatus
+  var nextHiatusLength = hiatusList[16][4]; //reference to the longest hiatus
   for(var i = 1; i < hiatusList.length; i++){
-  	if(hiatusList[i][7] > diffDays){
+  	if(hiatusList[i][4] > diffDays){
 			hiatusRank += 1;
-			if(hiatusList[i][7] < nextHiatusLength){
-      	nextHiatusLength = hiatusList[i][7];
+			if(hiatusList[i][4] < nextHiatusLength){
+      	nextHiatusLength = hiatusList[i][4];
       }
 		}
 	}
@@ -165,14 +173,12 @@ function hiatusRankCheck(){
 //makes an HTML table from the array
 function createTable(array) {
 	var diffDays = timer("up", latestRelease, "count");
-	array[array.length - 1][5] = diffDays + " and counting"; //Days in dark count
-	//array[array.length - 1][6] = diffDays - 63 + " and counting"; //Days waiting count. Subtract by days in the dark
-	array[array.length - 1][7] = diffDays + " and counting"; //Total Hiatus count
+	array[array.length - 1][4] = diffDays + " days and counting";
 	for(var i = 0; i < array.length ; i++){
 		var row = document.createElement('tr');
 		row.setAttribute("id", "myTr" + i);
 		document.getElementById("hiatus").appendChild(row);
-		for(var j = 0; j < 9; j++){
+		for(var j = 0; j < 6; j++){
 			var cell = document.createElement('td');
 			var content = document.createTextNode(array[i][j]);
 			cell.appendChild(content);
@@ -184,9 +190,9 @@ function createTable(array) {
 //does the ticking
 window.setInterval(function(){
 	timer("up", latestRelease, "count");
-	//timer("down", hiatusRankCheck(), "count2");
+	timer("down", hiatusRankCheck(), "count2");
 	timer("up", lastHiatusMention, "count3");
-	timer("down", nextRelease, "count4");
+	//timer("down", nextRelease, "count4"); //Comment out when no new release date
 }, 250);
 	
 //every 30 seconds, the most recent 100 posts on the subreddit are loaded up again in case there has been a new post that mentions hiatus
