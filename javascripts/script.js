@@ -1,6 +1,6 @@
 var oneDay = 24*60*60*1000;
-var latestRelease = new Date("2022-03-05T09:30:00-06:00"); // Newest Episode Release
-var nextRelease = new Date("2022-03-12T09:30:00-06:00"); // Next Episode release
+var latestRelease = new Date("2022-03-12T09:30:00-06:00"); // Newest Episode Release
+//var nextRelease = new Date("2022-03-12T09:30:00-06:00"); // Next Episode release
 var mode = 0; //DD:HH:MM:SS mode is default
 var lastHiatusMention = null;
 	
@@ -133,7 +133,7 @@ var hiatusList = [
 ['Ephemeral','Psycomedian','Nov 27 2021','Feb 5 2022',70,'']
 ];
 	
-/* function hiatusRankCheck(){
+ function hiatusRankCheck(){
 	var diffDays = timer("up", latestRelease, "count");
   var hiatusRank = 0;
   var nextHiatusLength = hiatusList[16][4]; //reference to the longest hiatus
@@ -168,12 +168,12 @@ var hiatusList = [
 	document.getElementById("nextHiatusLength").innerHTML =  nextHiatusLength;
 	var nextHiatusLengthDate = new Date(latestRelease.getTime() + (nextHiatusLength * 86400000));
 	return nextHiatusLengthDate;
-} */ //comment out when not on hiatus
+}  //comment out when not on hiatus
 	
 //makes an HTML table from the array
 function createTable(array) {
 	var diffDays = timer("up", latestRelease, "count");
-	//array[array.length - 1][4] = diffDays + " days and counting"; //comment out when not on hiatus
+	array[array.length - 1][4] = diffDays + " days and counting"; //comment out when not on hiatus
 	for(var i = 0; i < array.length ; i++){
 		var row = document.createElement('tr');
 		row.setAttribute("id", "myTr" + i);
@@ -190,9 +190,9 @@ function createTable(array) {
 //does the ticking
 window.setInterval(function(){
 	timer("up", latestRelease, "count");
-	//timer("down", hiatusRankCheck(), "count2"); //comment out when not on hiatus
+	timer("down", hiatusRankCheck(), "count2"); //comment out when not on hiatus
 	timer("up", lastHiatusMention, "count3");
-	timer("down", nextRelease, "count4"); //Comment out when no new release date
+	//timer("down", nextRelease, "count4"); //Comment out when no new release date
 }, 250);
 	
 //every 30 seconds, the most recent 100 posts on the subreddit are loaded up again in case there has been a new post that mentions hiatus
