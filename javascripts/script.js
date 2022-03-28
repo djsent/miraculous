@@ -130,7 +130,8 @@ var hiatusList = [
 ['Miracle Queen','Truth','Nov 23 2019','May 15 2021',539,''],
 ['Mega Leech','Crocoduel','Aug 14 2021','Sep 17 2021',34,''],
 ['Crocoduel','Simpleman','Sep 17 2021','Oct 16 2021',29,''],
-['Ephemeral','Psycomedian','Nov 27 2021','Feb 5 2022',70,'']
+['Ephemeral','Psycomedian','Nov 27 2021','Feb 5 2022',70,''],
+["Strikeback (Shadow Moth's Final Attack - Part 2)", '???', 'Mar 12 2022', '???',,'']
 ];
 	
  function hiatusRankCheck(){
