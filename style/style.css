@@ -177,9 +177,10 @@ body {
   border-bottom: 3px solid #3cd8ff;
 }
 
+/* alert */
 .alert {
   padding: 20px;
-  background-color: #25d198;
+  background-color: #34b8da;
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
